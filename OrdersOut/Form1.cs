@@ -45,18 +45,16 @@ namespace OrdersOut
 
         private void clear_Click(object sender, EventArgs e)
         {
-            StreamWriter orderfile = File.CreateText
-                ("Z:/Visual Studio 2015/Projects/7Sept16-1/7Sept16-1/bin/Debug/Orders.txt");
-
             DialogResult result = MessageBox.Show("Are you sure to CLEAR the orders file?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {
-                
                 // Delete content of the file
-                orderfile.WriteLine("");
+                StreamWriter orderfile = File.CreateText
+                ("Z:/Visual Studio 2015/Projects/7Sept16-1/7Sept16-1/bin/Debug/Orders.txt");
                 orderfile.Close();
-
+                
+                // Clear the list box
                 lbordersout.Items.Clear();
             }
         }
